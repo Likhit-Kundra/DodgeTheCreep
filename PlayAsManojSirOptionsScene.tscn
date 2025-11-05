@@ -1,0 +1,181 @@
+[gd_scene load_steps=14 format=3 uid="uid://ip3t3qr8wew7"]
+
+[ext_resource type="Texture2D" uid="uid://dqaq0cd86tc4c" path="res://Assets/Untitled-1.png" id="1_bsyor"]
+[ext_resource type="Script" uid="uid://g7rnpvuqslk0" path="res://play_as_manoj_sir_options_scene.gd" id="1_qg4ge"]
+[ext_resource type="FontFile" uid="uid://bgv586r20ps8e" path="res://Fonts/Xolonium-Regular.ttf" id="2_qg4ge"]
+[ext_resource type="FontFile" uid="uid://c7r7dvbryxaw0" path="res://Fonts/boldpixels/BoldPixels.otf" id="4_p1hay"]
+[ext_resource type="AudioStream" uid="uid://d2jur0ngr3fsb" path="res://Assets/ButtonClickSound.mp3" id="5_rvurk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1hay"]
+bg_color = Color(0.44716257, 0.7790963, 0.74220705, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.20784314, 0.11372549, 0.02745098, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.05490196, 0.5647059, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(2.615, 2.62)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvurk"]
+bg_color = Color(0.30904874, 0.61033934, 0.5765232, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.20784314, 0.11372549, 0.02745098, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.05490196, 0.5647059, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(2.615, 2.62)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uvbr"]
+bg_color = Color(0.15982497, 0.35748798, 0.3358178, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.20784314, 0.11372549, 0.02745098, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.05490196, 0.5647059, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(2.615, 2.62)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h4wvm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4wvm"]
+bg_color = Color(0.44716257, 0.7790963, 0.74220705, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.20784314, 0.11372549, 0.02745098, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.05490196, 0.5647059, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(2.615, 2.62)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0hu5"]
+bg_color = Color(0.30904874, 0.61033934, 0.5765232, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.20784314, 0.11372549, 0.02745098, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.05490196, 0.5647059, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(2.615, 2.62)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cehau"]
+bg_color = Color(0.15982497, 0.35748798, 0.3358178, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.20784314, 0.11372549, 0.02745098, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.05490196, 0.5647059, 0.68235296, 1)
+shadow_size = 1
+shadow_offset = Vector2(2.615, 2.62)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xu2vt"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qg4ge")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -360.0
+offset_right = 240.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bsyor")
+
+[node name="PlayAsManojSirButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 294.0
+offset_right = 422.0
+offset_bottom = 408.0
+theme_override_fonts/font = ExtResource("2_qg4ge")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_p1hay")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rvurk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1uvbr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h4wvm")
+text = "Play as
+Mahjong Sir"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 437.0
+offset_right = 326.0
+offset_bottom = 490.0
+theme_override_fonts/font = ExtResource("2_qg4ge")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_h4wvm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i0hu5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cehau")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xu2vt")
+text = "Back"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -380.0
+offset_right = 220.0
+offset_bottom = -223.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("4_p1hay")
+theme_override_font_sizes/normal_font_size = 62
+bbcode_enabled = true
+text = "[wave] Dodge Mahjong [/wave]
+ [wave ]Sir 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SfxButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rvurk")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

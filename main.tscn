@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://13pdve5s7hvh"]
+[gd_scene load_steps=11 format=3 uid="uid://13pdve5s7hvh"]
 
 [ext_resource type="Script" uid="uid://dii11cjl1wtbv" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b1idpjrqupyoc" path="res://Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://b74ph2vq4r53i" path="res://Mob.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://djesfxu7h2afw" path="res://hud.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://83yllc0tlog" path="res://Assets/pthwyp.jpg" id="5_lquwl"]
+[ext_resource type="AudioStream" uid="uid://2a6enn3a4v67" path="res://Assets/game-over-arcade-6435.mp3" id="6_7mycd"]
+[ext_resource type="AudioStream" uid="uid://cvlf4hschafj8" path="res://Assets/arcade-melody-295434.mp3" id="7_272bh"]
+[ext_resource type="AudioStream" uid="uid://d2jur0ngr3fsb" path="res://Assets/ButtonClickSound.mp3" id="8_5vw27"]
+[ext_resource type="AudioStream" uid="uid://bxsl013rqn6m0" path="res://Assets/MenuMusic.mp3" id="9_kek77"]
 
 [sub_resource type="Curve2D" id="Curve2D_h2yge"]
 _data = {
@@ -46,6 +50,19 @@ curve = SubResource("Curve2D_h2yge")
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 
 [node name="HUD" parent="." instance=ExtResource("4_1bvp3")]
+
+[node name="SfxGameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_7mycd")
+
+[node name="MusicDodgeTheCreepsInGame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_272bh")
+volume_db = -7.849
+
+[node name="SfxButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5vw27")
+
+[node name="MusicMainMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_kek77")
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

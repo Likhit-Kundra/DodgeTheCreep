@@ -2,10 +2,12 @@ extends Node
 
 @export var mob_scene: PackedScene
 var score
+@onready var music_main_menu: AudioStreamPlayer = $MusicMainMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	music_main_menu.stream.loop = true
+	music_main_menu.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

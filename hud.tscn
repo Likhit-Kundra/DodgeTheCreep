@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://djesfxu7h2afw"]
+[gd_scene load_steps=4 format=3 uid="uid://djesfxu7h2afw"]
 
 [ext_resource type="Script" uid="uid://b3e4cnbskfw4r" path="res://hud.gd" id="1_64ctp"]
 [ext_resource type="FontFile" uid="uid://bgv586r20ps8e" path="res://Fonts/Xolonium-Regular.ttf" id="2_8sq4i"]
+[ext_resource type="AudioStream" uid="uid://d2jur0ngr3fsb" path="res://Assets/ButtonClickSound.mp3" id="3_8sq4i"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_64ctp")
@@ -47,8 +48,7 @@ theme_override_fonts/font = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 64
 text = "Start"
 
-[node name="Options" type="Button" parent="."]
-visible = false
+[node name="OptionsButton" type="Button" parent="."]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.83300006
@@ -66,9 +66,25 @@ theme_override_fonts/font = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 64
 text = "Options"
 
+[node name="Level2Button" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 107.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_8sq4i")
+text = "Level 2"
+
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
+[node name="SfxButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8sq4i")
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Level2Button" to="." method="_on_level_2_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
