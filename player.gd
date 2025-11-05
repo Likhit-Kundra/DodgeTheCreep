@@ -39,5 +39,14 @@ func _process(delta):
 		$AnimatedSprite2D.flip_v = velocity.y > 0
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D):
+	hide()
+	hit.emit()
+	
+	$CollisionShape2D.set_deferred("disabled", true)
 	pass # Replace with function body.
+
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
