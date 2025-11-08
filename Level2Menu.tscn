@@ -1,13 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://cf1rrdtska012"]
+[gd_scene load_steps=15 format=3 uid="uid://cf1rrdtska012"]
 
 [ext_resource type="FontFile" uid="uid://bgv586r20ps8e" path="res://Fonts/Xolonium-Regular.ttf" id="1_cv3wm"]
 [ext_resource type="Texture2D" uid="uid://dqaq0cd86tc4c" path="res://Assets/Untitled-1.png" id="1_omd1l"]
 [ext_resource type="Script" uid="uid://b5j6cyc02j6nt" path="res://level_2_menu.gd" id="1_xqm6k"]
+[ext_resource type="VideoStream" uid="uid://biedfwhcikmpx" path="res://Assets/SchoolProjVid.ogv" id="3_0osdu"]
 [ext_resource type="FontFile" uid="uid://c7r7dvbryxaw0" path="res://Fonts/boldpixels/BoldPixels.otf" id="3_wialk"]
 [ext_resource type="AudioStream" uid="uid://d2jur0ngr3fsb" path="res://Assets/ButtonClickSound.mp3" id="5_h2f8n"]
+[ext_resource type="PackedScene" uid="uid://ctgcwe2ca7r6o" path="res://music_player.tscn" id="7_5kp6p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omd1l"]
-bg_color = Color(0.44716257, 0.7790963, 0.74220705, 1)
+bg_color = Color(0.44705883, 0.78039217, 0.7411765, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -70,6 +72,21 @@ shadow_offset = Vector2(2.615, 2.62)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xqm6k"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0osdu"]
+bg_color = Color(0.44705883, 0.78039217, 0.7411765, 0.52156866)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.20784314, 0.11372549, 0.02745098, 0.22352941)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.05490196, 0.5647059, 0.68235296, 0.29411766)
+shadow_size = 1
+shadow_offset = Vector2(2.615, 2.62)
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -100,10 +117,19 @@ texture = ExtResource("1_omd1l")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -4.07
+offset_top = -25.935
+offset_right = 1075.93
+offset_bottom = 1595.615
+scale = Vector2(0.445, 0.445)
+stream = ExtResource("3_0osdu")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(233.65501, 360.00003)
+scale = Vector2(0.444, 0.444)
+offset = Vector2(2.345, -26)
+
+[node name="MenuButtons" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -118,7 +144,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 9
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="StartButton" type="Button" parent="MenuButtons"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_cv3wm")
 theme_override_font_sizes/font_size = 51
@@ -128,7 +154,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_xqm6k")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wialk")
 text = "Start"
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="MenuButtons"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_cv3wm")
 theme_override_font_sizes/font_size = 51
@@ -137,6 +163,16 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wialk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h2f8n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xqm6k")
 text = "Options"
+
+[node name="BackstoryButton" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cv3wm")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxFlat_omd1l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wialk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h2f8n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xqm6k")
+text = "Backstory"
 
 [node name="BackToLevel1Button" type="Button" parent="."]
 layout_mode = 0
@@ -153,6 +189,28 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_xqm6k")
 text = "Tutorial
 "
 
+[node name="SkipVidButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -77.0
+offset_right = -12.0
+offset_bottom = -38.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_cv3wm")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_0osdu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wialk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h2f8n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xqm6k")
+text = "Skip
+"
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -161,16 +219,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -222.0
-offset_top = -405.0
+offset_top = -402.0
 offset_right = 216.0
-offset_bottom = -248.0
+offset_bottom = -245.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("3_wialk")
 theme_override_font_sizes/normal_font_size = 62
 bbcode_enabled = true
-text = "[wave] Dodge Mahjong [/wave]
- [wave ]Sir 
+text = "[wave] Catch Me if [/wave]
+ [wave ]You Can!! 
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -178,6 +236,20 @@ vertical_alignment = 1
 [node name="SfxButtonClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_h2f8n")
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[node name="BackstoryVidFinishTimer" type="Timer" parent="."]
+wait_time = 33.5
+one_shot = true
+
+[node name="BackstoryVidAudioFadeTimer" type="Timer" parent="."]
+wait_time = 53.0
+
+[node name="MusicPlayer" parent="." instance=ExtResource("7_5kp6p")]
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="MenuButtons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuButtons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MenuButtons/BackstoryButton" to="." method="_on_backstory_button_pressed"]
 [connection signal="pressed" from="BackToLevel1Button" to="." method="_on_back_to_level_1_button_pressed"]
+[connection signal="pressed" from="SkipVidButton" to="." method="_on_skip_vid_button_pressed"]
+[connection signal="timeout" from="BackstoryVidFinishTimer" to="." method="_on_backstory_vid_finish_timer_timeout"]
+[connection signal="timeout" from="BackstoryVidAudioFadeTimer" to="." method="_on_backstory_vid_audio_fade_timer_timeout"]

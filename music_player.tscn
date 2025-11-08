@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctgcwe2ca7r6o"]
+
+[ext_resource type="AudioStream" uid="uid://puxarsrvuten" path="res://Assets/Catch Me If You Can (1).mp3" id="1_fvyft"]
+
+[node name="MusicPlayer" type="Node"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_fvyft")

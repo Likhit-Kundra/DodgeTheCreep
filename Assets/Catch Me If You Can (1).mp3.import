@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://puxarsrvuten"
+path="res://.godot/imported/Catch Me If You Can (1).mp3-b7bf22d24b384b2d41cd64e75e0d0e73.mp3str"
+
+[deps]
+
+source_file="res://Assets/Catch Me If You Can (1).mp3"
+dest_files=["res://.godot/imported/Catch Me If You Can (1).mp3-b7bf22d24b384b2d41cd64e75e0d0e73.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,28 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlhv7kcpwx57j"]
+[gd_scene load_steps=8 format=3 uid="uid://dlhv7kcpwx57j"]
 
-[ext_resource type="Script" uid="uid://chj2ptb38oidk" path="res://player.gd" id="1_cdpik"]
+[ext_resource type="Script" uid="uid://iug43ttevxaa" path="res://student.gd" id="1_av81t"]
+[ext_resource type="Texture2D" uid="uid://det1k1cxvbh2u" path="res://Assets/StudentRunning_1.png" id="2_av81t"]
+[ext_resource type="Texture2D" uid="uid://bncb6tnliik80" path="res://Assets/StudentRunningHorizontal_1.png" id="2_cdpik"]
+[ext_resource type="Texture2D" uid="uid://sqm156juvepa" path="res://Assets/StudentRunningHorizontal_3.png" id="3_hvorl"]
+[ext_resource type="Texture2D" uid="uid://l6rbj8af6lgn" path="res://Assets/StudentRunning_3.png" id="3_kqc46"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5ncpa"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cdpik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hvorl")
+}],
+"loop": true,
+"name": &"Roam",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_av81t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kqc46")
+}],
 "loop": true,
 "name": &"Walk",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wi0c6"]
-radius = 27.0
-height = 68.0
+radius = 19.0
+height = 38.0
 
 [node name="Student" type="Area2D"]
-script = ExtResource("1_cdpik")
+script = ExtResource("1_av81t")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.2421875, 0.2421875)
 sprite_frames = SubResource("SpriteFrames_5ncpa")
-animation = &"Walk"
-frame_progress = 0.40520057
+animation = &"Roam"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_wi0c6")
