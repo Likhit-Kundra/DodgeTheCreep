@@ -189,6 +189,20 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_xqm6k")
 text = "Tutorial
 "
 
+[node name="ScoreCountEnableButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 472.0
+offset_right = 380.0
+offset_bottom = 511.0
+theme_override_fonts/font = ExtResource("1_cv3wm")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_omd1l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wialk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h2f8n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xqm6k")
+text = "E"
+
 [node name="SkipVidButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 3

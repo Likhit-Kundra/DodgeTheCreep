@@ -4,6 +4,8 @@ extends Node2D
 
 
 func _ready() -> void:
+	$StartTimer.start()
+	$GetReadyText.show()
 	MusicPlayer.get_node("AudioStreamPlayer").play()
 	$GameOverText.hide()
 	
@@ -30,7 +32,7 @@ func _on_game_over_timer_timeout() -> void:
 
 
 func _on_sir_timer_timeout() -> void:
-	if GlobalScript.sirscore < 20:
+	if GlobalScript.sirscore < 10:
 		var factor = 1.5
 		var sir = sir_scene.instantiate()
 		
@@ -53,12 +55,15 @@ func _on_sir_timer_timeout() -> void:
 			collision_shape.shape.height *= factor*0.7
 		sir.get_node("AnimatedSprite2D").scale *= factor
 		add_child(sir)
-	elif GlobalScript.sirscore == 20:
+	elif GlobalScript.sirscore == 10:
 		# Animation Script 
+		MusicPlayer.get_node("AudioStreamPlayer").stream_paused = true
 		$Sequence1Timer.start()
-		await get_tree().create_timer(5.0).timeout
+		$Sounds/SfxLevelUp.play()
+		#get_tree().change_scene_to_file("res://three_students_video.tscn")
+		MusicPlayer.get_node("AudioStreamPlayer").stream_paused = false
 		GlobalScript.sirscore += 1
-	elif GlobalScript.sirscore > 20 and GlobalScript.sirscore < 50:
+	elif GlobalScript.sirscore > 10 and GlobalScript.sirscore < 40:
 		for i in 3:
 			var factor = 1.5
 			var sir = sir_scene.instantiate()
@@ -72,7 +77,7 @@ func _on_sir_timer_timeout() -> void:
 			
 			direction += randf_range(-PI / 4 , PI / 4)
 			sir.rotation = direction
-			var velocity = Vector2(randf_range(350.0, 450.0), 0.0)
+			var velocity = Vector2(randf_range(200.0, 300.0), 0.0)
 			sir.linear_velocity = velocity.rotated(direction)
 			
 			var collision_shape = sir.get_node("CollisionShape2D")
@@ -90,3 +95,4 @@ func _on_sir_timer_timeout() -> void:
 func _on_start_timer_timeout() -> void:
 	$SirTimer.start() # Replace with function body.
 	$ScoreTimer.start()
+	$GetReadyText.hide()

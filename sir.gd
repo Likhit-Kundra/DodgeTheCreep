@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-@export var speed: float = 400.0
-@export var turn_rate: float = 3.0     # how sharply it curves
+@export var speed: float = 300.0
+@export var turn_rate: float = 4.0     # how sharply it curves
 @export var tracking_time: float = 1.5 # seconds it keeps adjusting toward the player
 
 var direction: Vector2

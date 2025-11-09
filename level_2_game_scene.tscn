@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2qs4gtefs63l"]
+[gd_scene load_steps=9 format=3 uid="uid://c2qs4gtefs63l"]
 
 [ext_resource type="Script" uid="uid://5s3v2rb0texx" path="res://level_2_game_scene.gd" id="1_ahagg"]
 [ext_resource type="Texture2D" uid="uid://jbulolrw1r8k" path="res://Assets/istockphoto-590596406-612x612.jpg" id="1_xqgqe"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://br7etbaf7nj5l" path="res://sir.tscn" id="3_78eq0"]
 [ext_resource type="FontFile" uid="uid://c7r7dvbryxaw0" path="res://Fonts/boldpixels/BoldPixels.otf" id="5_17itk"]
 [ext_resource type="FontFile" uid="uid://bgv586r20ps8e" path="res://Fonts/Xolonium-Regular.ttf" id="6_oyhpq"]
+[ext_resource type="AudioStream" uid="uid://dwxvsbuh66751" path="res://Assets/cute-level-up-2-189851.mp3" id="7_uj3e5"]
 
 [sub_resource type="Curve2D" id="Curve2D_17itk"]
 _data = {
@@ -40,17 +41,31 @@ theme_override_fonts/font = ExtResource("5_17itk")
 theme_override_font_sizes/font_size = 55
 text = "You Got Caught !! "
 
+[node name="GetReadyText" type="Label" parent="."]
+offset_left = 31.0
+offset_top = 291.0
+offset_right = 479.0
+offset_bottom = 347.0
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_17itk")
+theme_override_font_sizes/font_size = 55
+text = "Get Ready !! "
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="GameOverTimer" type="Timer" parent="."]
 wait_time = 2.0
 
 [node name="SirTimer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
 
 [node name="SirPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_17itk")
@@ -81,6 +96,13 @@ vertical_alignment = 1
 
 [node name="Sequence1Timer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="SfxLevelUp" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_uj3e5")
+volume_db = 3.0
 
 [connection signal="hit" from="Student" to="." method="_on_student_hit"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]

@@ -43,15 +43,18 @@ func BackstoryVidStart():
 	$VideoStreamPlayer.play()
 	$SkipVidButton.show()
 	$BackstoryVidFinishTimer.start()
+	$ScoreCountEnableButton.hide()
 	
 func BackstoryVidStop():
 	$VideoStreamPlayer.hide()
 	$RichTextLabel.show()
+	$ScoreCountEnableButton.show()
 	
 
 func _on_backstory_vid_finish_timer_timeout():
 	$MenuButtons.show()
 	$BackToLevel1Button.show()
+	
 
 
 func _on_video_stream_player_finished() -> void:
