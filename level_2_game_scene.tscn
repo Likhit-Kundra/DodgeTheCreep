@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2qs4gtefs63l"]
+[gd_scene load_steps=13 format=3 uid="uid://c2qs4gtefs63l"]
 
 [ext_resource type="Script" uid="uid://5s3v2rb0texx" path="res://level_2_game_scene.gd" id="1_ahagg"]
 [ext_resource type="Texture2D" uid="uid://jbulolrw1r8k" path="res://Assets/istockphoto-590596406-612x612.jpg" id="1_xqgqe"]
@@ -6,7 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://br7etbaf7nj5l" path="res://sir.tscn" id="3_78eq0"]
 [ext_resource type="FontFile" uid="uid://c7r7dvbryxaw0" path="res://Fonts/boldpixels/BoldPixels.otf" id="5_17itk"]
 [ext_resource type="FontFile" uid="uid://bgv586r20ps8e" path="res://Fonts/Xolonium-Regular.ttf" id="6_oyhpq"]
+[ext_resource type="VideoStream" uid="uid://bcxrq7kvhwib4" path="res://Three Students video.ogv" id="7_nwdeh"]
 [ext_resource type="AudioStream" uid="uid://dwxvsbuh66751" path="res://Assets/cute-level-up-2-189851.mp3" id="7_uj3e5"]
+[ext_resource type="VideoStream" uid="uid://ch5xurwpm1olp" path="res://Assets/SirSuperSaiyanAlpha.ogv" id="8_03i4v"]
+[ext_resource type="AudioStream" uid="uid://bas281k5pspty" path="res://Assets/StockTune-Pixelated Dreamscape Journey_1762775920.mp3" id="8_ebwgt"]
+[ext_resource type="AudioStream" uid="uid://2a6enn3a4v67" path="res://Assets/game-over-arcade-6435.mp3" id="9_7axcy"]
 
 [sub_resource type="Curve2D" id="Curve2D_17itk"]
 _data = {
@@ -67,6 +71,8 @@ wait_time = 2.0
 wait_time = 2.0
 one_shot = true
 
+[node name="ScorePlusTimer" type="Timer" parent="."]
+
 [node name="SirPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_17itk")
 
@@ -100,11 +106,33 @@ one_shot = true
 
 [node name="Sounds" type="Node" parent="."]
 
+[node name="ThreeStudentsVid" type="VideoStreamPlayer" parent="Sounds"]
+offset_right = 1080.0
+offset_bottom = 1620.0
+scale = Vector2(0.445, 0.445)
+stream = ExtResource("7_nwdeh")
+
+[node name="SirSuperSaiyan" type="VideoStreamPlayer" parent="Sounds"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.445, 0.445)
+stream = ExtResource("8_03i4v")
+
 [node name="SfxLevelUp" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("7_uj3e5")
 volume_db = 3.0
+
+[node name="MusicMainGame" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_ebwgt")
+
+[node name="SfxGameOver" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("9_7axcy")
+volume_db = 5.0
 
 [connection signal="hit" from="Student" to="." method="_on_student_hit"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]
 [connection signal="timeout" from="SirTimer" to="." method="_on_sir_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="ScorePlusTimer" to="." method="_on_score_plus_timer_timeout"]
+[connection signal="finished" from="Sounds/ThreeStudentsVid" to="." method="_on_three_students_vid_finished"]
+[connection signal="finished" from="Sounds/SirSuperSaiyan" to="." method="_on_sir_super_saiyan_finished"]

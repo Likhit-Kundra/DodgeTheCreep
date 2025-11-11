@@ -74,3 +74,12 @@ func _on_skip_vid_button_pressed() -> void:
 	$BackToLevel1Button.show()
 	MusicPlayer.get_node("AudioStreamPlayer").play()
 	
+
+
+func _on_score_count_enable_button_pressed() -> void:
+	if GlobalScript.score_enabled:
+		$ScoreCountEnableButton.text = "E"
+		GlobalScript.score_enabled = false
+	else:
+		$ScoreCountEnableButton.text = "E*"
+		GlobalScript.score_enabled = true

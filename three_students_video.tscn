@@ -1,12 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://0agkgi6h17vu"]
+[gd_scene load_steps=3 format=3 uid="uid://0agkgi6h17vu"]
 
 [ext_resource type="Script" uid="uid://cla5o7yx7rnii" path="res://three_students_video.gd" id="1_gqylb"]
+[ext_resource type="VideoStream" uid="uid://bcxrq7kvhwib4" path="res://Three Students video.ogv" id="2_sd5tr"]
 
 [node name="ThreeStudentsVideo" type="Node"]
 script = ExtResource("1_gqylb")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1080.0
+offset_bottom = 1620.0
+scale = Vector2(0.444, 0.444)
+stream = ExtResource("2_sd5tr")
 
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

@@ -264,6 +264,7 @@ wait_time = 53.0
 [connection signal="pressed" from="MenuButtons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MenuButtons/BackstoryButton" to="." method="_on_backstory_button_pressed"]
 [connection signal="pressed" from="BackToLevel1Button" to="." method="_on_back_to_level_1_button_pressed"]
+[connection signal="pressed" from="ScoreCountEnableButton" to="." method="_on_score_count_enable_button_pressed"]
 [connection signal="pressed" from="SkipVidButton" to="." method="_on_skip_vid_button_pressed"]
 [connection signal="timeout" from="BackstoryVidFinishTimer" to="." method="_on_backstory_vid_finish_timer_timeout"]
 [connection signal="timeout" from="BackstoryVidAudioFadeTimer" to="." method="_on_backstory_vid_audio_fade_timer_timeout"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bas281k5pspty"
+path="res://.godot/imported/StockTune-Pixelated Dreamscape Journey_1762775920.mp3-601acdf0766475950fdb3d2387e5b2f3.mp3str"
+
+[deps]
+
+source_file="res://Assets/StockTune-Pixelated Dreamscape Journey_1762775920.mp3"
+dest_files=["res://.godot/imported/StockTune-Pixelated Dreamscape Journey_1762775920.mp3-601acdf0766475950fdb3d2387e5b2f3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
