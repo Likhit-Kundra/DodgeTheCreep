@@ -4,6 +4,11 @@ extends Node2D
 
 
 func _ready() -> void:
+	if GlobalScript.sirscore >= 10 and GlobalScript.sirscore <= 40:
+		$SirTimer.wait_time = 5
+	else:
+		$SirTimer.wait_time = 2
+	
 	$StartTimer.start()
 	$GetReadyText.show()
 	$Sounds/MusicMainGame.play()
