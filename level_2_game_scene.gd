@@ -1,5 +1,6 @@
 extends Node2D
 @export var sir_scene: PackedScene
+var score_40_reached:bool = false
 # Called when the node enters the scene tree for the first time.
 
 
@@ -20,6 +21,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if GlobalScript.sirscore == 40 and GlobalScript.student_hit == false:
 		on_score_reach_40()
+	elif GlobalScript.sirscore == 60 and GlobalScript.student_hit == false:
+		on_score_reach_60()
+	else:
+		pass
 	$Score.text = "Score : " + str(GlobalScript.sirscore)
 
 
@@ -108,6 +113,8 @@ func _on_sir_timer_timeout() -> void:
 				collision_shape.shape.radius *= factor*0.7
 				collision_shape.shape.height *= factor*0.7
 			sir.get_node("AnimatedSprite2D").scale *= factor
+			
+			
 			add_child(sir)
 	#elif GlobalScript.sirscore == 40:
 		#$Sounds/SfxLevelUp.play()
@@ -184,7 +191,17 @@ func _on_start_timer_timeout() -> void:
 	$SirTimer.start() # Replace with function body.
 	$ScoreTimer.start()
 	$GetReadyText.hide()
-
+	await get_tree().create_timer(1.0).timeout
+	if score_40_reached == true:
+		$GetReadyText.text = """Power: 
+		Increasing Speed."""
+		$GetReadyText.show()
+		score_40_reached = false
+		await get_tree().create_timer(2.0).timeout
+		$GetReadyText.hide()
+	else:
+		pass
+	
 
 func _on_score_plus_timer_timeout() -> void:
 	GlobalScript.sirscore += 1
@@ -213,10 +230,12 @@ func _on_sir_super_saiyan_finished() -> void:
 	$GetReadyText.add_theme_font_size_override("font_size", 48)
 	$GetReadyText.show()
 	$Student/CollisionShape2D.disabled = false
-	GlobalScript.sirscore = 41
 	GlobalScript.sirscore += 1
+	score_40_reached = true
+	
 
 func on_score_reach_40():
+	GlobalScript.sirscore += 1
 	$Sounds/SfxLevelUp.play()
 	$Sounds/SirSuperSaiyan.play()
 	$Student/CollisionShape2D.disabled = true
@@ -224,3 +243,47 @@ func on_score_reach_40():
 	#get_tree().change_scene_to_file("res://three_students_video.tscn")
 	$StartTimer.stop()
 	
+	
+func on_score_reach_60():
+	$SirTimer.stop()
+	$Sounds/SfxLevelUp.play()
+	GlobalScript.sirscore += 1
+	$Sounds/MusicMainGame.stop()
+	$GetReadyText.text = "You Won!!"
+	$GetReadyText.add_theme_font_size_override("font_size", 48)	
+	$GetReadyText.show()
+	await get_tree().create_timer(0.5).timeout
+	$GetReadyText.hide()
+	await get_tree().create_timer(0.5).timeout
+	$GetReadyText.show()
+	await get_tree().create_timer(0.5).timeout
+	$GetReadyText.hide()
+	await get_tree().create_timer(0.5).timeout
+	$GetReadyText.show()
+	await get_tree().create_timer(0.5).timeout
+	$GetReadyText.hide()
+	await get_tree().create_timer(0.5).timeout
+	$Sounds/VictoryVid.show()
+	$Sounds/VictoryVid.play()
+	$Student/CollisionShape2D.disabled = true
+	$SirTimer.stop()
+	#get_tree().change_scene_to_file("res://three_students_video.tscn")
+	$StartTimer.stop()
+	$VictoryTImer.start()
+	
+
+
+func _on_victory_vid_finished() -> void:
+	#$StartTimer.start()
+	get_tree().change_scene_to_file("res://Level2Menu.tscn")
+	#$ScorePlusTimer.start()
+	
+	$Student/CollisionShape2D.disabled = false
+	#GlobalScript.sirscore += 1
+	#score_40_reached = true
+
+
+func _on_victory_t_imer_timeout() -> void:
+	$GetReadyText.text = "You Won!!"
+	$GetReadyText.add_theme_font_size_override("font_size", 48)
+	$GetReadyText.show()

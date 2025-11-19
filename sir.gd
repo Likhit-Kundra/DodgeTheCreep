@@ -11,6 +11,15 @@ func _ready() -> void:
 	if is_instance_valid(GlobalScript.player):
 		direction = (GlobalScript.player.global_position - global_position).normalized()
 		linear_velocity = direction * speed
+	
+	var sir_types = Array($AnimatedSprite2D.sprite_frames.get_animation_names())
+	print(sir_types)
+	if GlobalScript.sirscore >= 10 and GlobalScript.sirscore <= 40:
+		$AnimatedSprite2D.animation = "ThreeStudents"
+	elif GlobalScript.sirscore > 40 and GlobalScript.sirscore <= 60:
+		$AnimatedSprite2D.animation = "SuperSaiyanSir"
+	else:
+		$AnimatedSprite2D.animation = "default"
 
 func _physics_process(delta: float) -> void:
 	time_alive += delta
