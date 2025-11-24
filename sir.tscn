@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://br7etbaf7nj5l"]
+[gd_scene load_steps=9 format=3 uid="uid://br7etbaf7nj5l"]
 
 [ext_resource type="Script" uid="uid://j5dm0m3hgn2o" path="res://sir.gd" id="1_1urlq"]
-[ext_resource type="Texture2D" uid="uid://1k21vpauolx0" path="res://images (2).jpeg" id="1_xasfl"]
+[ext_resource type="Texture2D" uid="uid://6d5qupnxxu83" path="res://Assets/SirSuperSaiyanRunningSprite1.png" id="2_gvjbi"]
+[ext_resource type="Texture2D" uid="uid://ctc71fyltpeps" path="res://Assets/StudentEnemyRunning_1.png" id="3_cn6c1"]
+[ext_resource type="Texture2D" uid="uid://bd7ru8pyaghv7" path="res://Assets/SirRunningSprite1.png" id="3_n3o4u"]
+[ext_resource type="Texture2D" uid="uid://b60gl1ro01o11" path="res://Assets/SirRunningSprite2.png" id="4_gvjbi"]
+[ext_resource type="Texture2D" uid="uid://bbgavw07oyu5h" path="res://Assets/StudentEnemyRunning_2.png" id="4_pdwv2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xasfl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_xasfl")
+"texture": ExtResource("2_gvjbi")
 }],
 "loop": true,
 "name": &"SuperSaiyanSir",
@@ -15,7 +19,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_xasfl")
+"texture": ExtResource("3_cn6c1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pdwv2")
 }],
 "loop": true,
 "name": &"ThreeStudents",
@@ -23,7 +30,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_xasfl")
+"texture": ExtResource("3_n3o4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gvjbi")
 }],
 "loop": true,
 "name": &"default",
@@ -39,9 +49,10 @@ gravity_scale = 0.0
 script = ExtResource("1_1urlq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.198, 0.198)
+position = Vector2(-0.9999998, 5.9604645e-07)
+scale = Vector2(0.13, 0.13)
 sprite_frames = SubResource("SpriteFrames_xasfl")
-animation = &"SuperSaiyanSir"
+animation = &"ThreeStudents"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1urlq")
